@@ -1,9 +1,42 @@
-
 {
-    "users": [
-        { "id": 1, "name": "yazhini", "email": "yazhini423@gmail.com", "image": "/assets/images/profile1.jpg" },
-        { "id": 2, "name": "Jane Smith", "email": "jane@example.com", "image": "/assets/images/profile2.jpg" }
-  
-    ]
+  "users": [
+    {
+      "id": 1,
+      "name": "yazhini",
+      "email": "yazhini423@gmail.com",
+      "image": "/assets/images/profile1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "image": "/assets/images/profile2.jpg"
+    }
+  ],
+  "prompts": [
+    {
+      "id": 1,
+      "prompt": " A vibrant coral reef under the sea, with colorful fish swimming among the coral, seaweed, and sea creatures.",
+      "username": "yazhini",
+      "email": "yazhini423@gmail.com",
+      "tag": "#Coral reef, #underwater, #sea life, #fish, #ocean",
+      "createdAt": "2024-11-27T07:44:43.767Z"
+    },
+    {
+      "id": 2,
+      "prompt": " An astronaut floating in space, looking out at the Earth below, with distant stars scattered across the dark sky.",
+      "username": "yazhini",
+      "email": "yazhini423@gmail.com",
+      "tag": "#Astronaut, #space, #Earth, #stars, #cosmos, #science fiction, #space exploration",
+      "createdAt": "2024-11-27T07:46:22.329Z"
+    },
+    {
+      "id": 3,
+      "prompt": "A serene Japanese garden with a koi pond, cherry blossom trees, and a stone lantern.",
+      "username": "yazhini",
+      "email": "yazhini423@gmail.com",
+      "tag": "#A serene Japanese garden with a koi pond,#fish, #cherry blossom trees, #a stone lantern. ",
+      "createdAt": "2024-11-27T07:47:20.412Z"
+    }
+  ]
 }
-  

@@ -1,60 +1,3 @@
-/*import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google"
-
-console.log({
-    clientId:process.env.GOOGLE_ID,
-    clientSecret:process.env.GOOGLE_CLIENT_SECRET,
-
-
-})
-const handler = NextAuth({
-    providers: [
-        GoogleProvider({
-            clientId:process.env.GOOGLE_ID,
-            clientSecret:process.env.GOOGLE_CLIENT_SECRET,
-        })
-    ],
-    async session({session}){
-
-    },
-    async signIn({profile}){
-        try{
-            //serverless lamda dynamodb
-
-        }catch(error){
-
-        }
-    }
-})
-export{ handler as GET, handler as POST} 
-
-import fs from 'fs';
-import path from 'path';
-
-const filePath = path.join(process.cwd(), 'db.json');
-
-export default function handler(req, res) {
-  // Read the data from db.json
-  const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-
-  if (req.method === 'GET') {
-    // Return all users
-    res.status(200).json(data.users);
-  } else if (req.method === 'POST') {
-    // Add a new user
-    const newUser = req.body;
-    newUser.id = data.users.length + 1; // Auto-increment ID
-    data.users.push(newUser);
-
-    // Write updated data back to db.json
-    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf-8');
-
-    res.status(201).json(newUser);
-  } else {
-    res.status(405).json({ message: 'Method not allowed' });
-  }
-}
-*/
 
 import NextAuth from 'next-auth';
 import GoogleProvider from 'next-auth/providers/google';
@@ -81,6 +24,9 @@ const handler = NextAuth({
         params: {
           scope: 'openid email profile',
       }},
+      httpOptions: {
+        timeout: 10000,  // Increase timeout to 10 seconds
+      },
     }),
   ],
   callbacks: {
@@ -127,57 +73,3 @@ const handler = NextAuth({
 });
 
 export { handler as GET, handler as POST };
-/*
-import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
-
-console.log({
-  clientId: process.env.GOOGLE_ID,
-  clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-});
-
-const handler = NextAuth({
-    debug:true,
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    }),
-  ],
-  callbacks: {
-    // Session callback: Modify the session object sent to the client
-    async session({ session, token }) {
-      // Attach the user ID from the token to the session
-      session.user.id = token.id;
-      return session;
-    },
-    // Sign-in callback: Validate or create user on sign-in
-    async signIn({ user, account, profile }) {
-      try {
-        console.log("Sign-in attempt:", { user, account, profile });
-
-        // Example logic: Check if the user email is verified
-        if (profile?.email_verified === false) {
-          console.error("Email not verified.");
-          return false; // Reject sign-in if email is not verified
-        }
-
-        // Placeholder for future integration (e.g., database operations)
-        // For example, check or create the user in your database:
-        // const userExists = await findUserInDatabase(profile.email);
-        // if (!userExists) {
-        //   await createUserInDatabase({ email: profile.email, name: profile.name });
-        // }
-
-        return true; // Allow sign-in
-      } catch (error) {
-        console.error("Error during sign-in:", error);
-        return false; // Reject sign-in in case of errors
-      }
-    },
-  },
-  debug: true, // Enable debugging for detailed logs
-});
-
-export { handler as GET, handler as POST };
-*/

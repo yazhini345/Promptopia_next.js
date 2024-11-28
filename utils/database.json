@@ -1,8 +1,7 @@
 
 {
     "users": [
-        { "id": 1, "name": "yazhini", "email": "yazhini423@gmail.com", "image": "/assets/images/profile1.jpg" },
-        { "id": 2, "name": "Jane Smith", "email": "jane@example.com", "image": "/assets/images/profile2.jpg" }
+        { "id": 1, "name": "Jane Smith", "email": "jane@example.com", "image": "/assets/images/profile2.jpg" }
   
     ]
 }
